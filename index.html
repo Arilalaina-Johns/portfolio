@@ -1,0 +1,1100 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfolio professionnel de développeur Web et Mobile. Découvrez mes compétences, projets et services.">
+<title>Portfolio | Développeur Web & Mobile</title>
+
+<style>
+/* =========================
+   1. CONFIGURATION GÉNÉRALE
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg: #080d18;
+    --bg-light: #101a2b;
+    --card: #111d30;
+    --primary: #38bdf8;
+    --secondary: #818cf8;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --border: rgba(148,163,184,.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 88%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+section {
+    padding: 100px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-title h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.section-title h2 span {
+    color: var(--primary);
+}
+
+.section-title p {
+    color: var(--muted);
+}
+
+/* =========================
+   2. NAVIGATION
+========================= */
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: rgba(8,13,24,.85);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: 14px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+/* =========================
+   3. BOUTONS
+========================= */
+
+.btn {
+    display: inline-block;
+    padding: 13px 25px;
+    border-radius: 8px;
+    background: linear-gradient(120deg, var(--primary), var(--secondary));
+    color: #08111e;
+    font-weight: 700;
+    transition: .3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(56,189,248,.25);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    margin-left: 12px;
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: #08111e;
+}
+
+/* =========================
+   4. ACCUEIL / HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    background: var(--primary);
+    filter: blur(180px);
+    opacity: .13;
+    top: 15%;
+    right: -100px;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.hero-text .welcome {
+    color: var(--primary);
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.hero-text h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(40px, 5.5vw, 68px);
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.hero-text h1 span {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero-text h3 {
+    font-size: 23px;
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    color: var(--muted);
+    line-height: 1.9;
+    max-width: 560px;
+    margin-bottom: 30px;
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.profile-frame {
+    width: 320px;
+    height: 380px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    padding: 4px;
+    transform: rotate(3deg);
+    box-shadow: 0 20px 80px rgba(56,189,248,.15);
+}
+
+.profile-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 22px;
+    background: var(--card);
+}
+
+.floating-card {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    padding: 15px 20px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+    50% { transform: translateY(-12px); }
+}
+
+/* =========================
+   5. À PROPOS
+========================= */
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 35px;
+    border-radius: 18px;
+}
+
+.about-box h3 {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.about-box p {
+    color: var(--muted);
+    line-height: 1.9;
+    margin-bottom: 15px;
+}
+
+.about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.stat {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.stat h3 {
+    color: var(--primary);
+    font-size: 32px;
+}
+
+.stat p {
+    color: var(--muted);
+    margin-top: 8px;
+}
+
+/* =========================
+   6. COMPÉTENCES
+========================= */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.skill-card {
+    background: var(--card);
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    transition: .3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary);
+}
+
+.skill-card .icon {
+    font-size: 35px;
+    margin-bottom: 18px;
+}
+
+.skill-card h3 {
+    margin-bottom: 12px;
+}
+
+.skill-card p {
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.skill-bar {
+    height: 7px;
+    background: #26354a;
+    border-radius: 10px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 10px;
+}
+
+/* =========================
+   7. PROJETS
+========================= */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 23px;
+}
+
+.project-info h3 {
+    margin-bottom: 12px;
+}
+
+.project-info p {
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.tags span {
+    font-size: 12px;
+    color: var(--primary);
+    background: rgba(56,189,248,.1);
+    padding: 6px 10px;
+    border-radius: 5px;
+}
+
+.project-link {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* =========================
+   8. SERVICES
+========================= */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.service-card {
+    padding: 35px 25px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    text-align: center;
+    transition: .3s;
+}
+
+.service-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--primary);
+}
+
+.service-card .icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+/* =========================
+   9. CONTACT
+========================= */
+
+.contact-content {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 50px;
+}
+
+.contact-info h3 {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.contact-item {
+    padding: 15px 0;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+}
+
+.contact-item span {
+    color: var(--primary);
+    margin-right: 10px;
+}
+
+.contact-form {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 30px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: white;
+    font-family: inherit;
+    margin-bottom: 18px;
+    outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary);
+}
+
+.contact-form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+/* =========================
+   10. FOOTER
+========================= */
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 30px 0;
+    text-align: center;
+    color: var(--muted);
+}
+
+footer span {
+    color: var(--primary);
+}
+
+/* =========================
+   11. ANIMATIONS
+========================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: .8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   12. RESPONSIVE
+========================= */
+
+@media(max-width: 900px) {
+    .hero-content,
+    .about-content,
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-image {
+        margin-top: 30px;
+    }
+
+    .skills-grid,
+    .projects-grid,
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 650px) {
+    .container {
+        width: 92%;
+    }
+
+    section {
+        padding: 75px 0;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: var(--bg-light);
+        flex-direction: column;
+        padding: 25px;
+        gap: 25px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .hero-text h1 {
+        font-size: 43px;
+    }
+
+    .hero-text h3 {
+        font-size: 19px;
+    }
+
+    .profile-frame {
+        width: 260px;
+        height: 310px;
+    }
+
+    .skills-grid,
+    .projects-grid,
+    .services-grid,
+    .about-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2 {
+        font-size: 30px;
+    }
+
+    .btn {
+        padding: 12px 17px;
+        font-size: 13px;
+    }
+
+    .floating-card {
+        left: -5px;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header>
+    <div class="container navbar">
+        <a href="#home" class="logo">Dev<span>Portfolio.</span></a>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Accueil</a></li>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#skills">Compétences</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</header>
+
+<!-- ACCUEIL -->
+<section class="hero" id="home">
+    <div class="container hero-content">
+
+        <div class="hero-text">
+            <p class="welcome">BIENVENUE SUR MON PORTFOLIO 👋</p>
+
+            <h1>
+                Bonjour, je suis <span>RANDRIANANJASON Arilalaina Johnson</span>
+            </h1>
+
+            <h3>Développeur Web & Mobile</h3>
+
+            <p>
+                Je conçois et développe des applications web et mobiles
+                modernes, performantes et intuitives. Passionné par la
+                technologie, je transforme les idées en solutions
+                numériques innovantes.
+            </p>
+
+            <a href="#projects" class="btn">Voir mes projets ↗</a>
+            <a href="#contact" class="btn btn-outline">Me contacter</a>
+        </div>
+
+        <div class="hero-image">
+            <div class="profile-frame">
+                <!-- Remplacez cette image par votre photo -->
+                <img src="Johns.jpg"
+                     alt="Photo de profil du développeur">
+            </div>
+
+            <div class="floating-card">
+                💻 Créativité & Innovation
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- À PROPOS -->
+<section id="about">
+    <div class="container">
+        <div class="section-title reveal">
+            <h2>À <span>propos de moi</span></h2>
+            <p>Découvrez mon parcours et ma passion pour le développement.</p>
+        </div>
+
+        <div class="about-content reveal">
+
+            <div class="about-box">
+                <h3>Qui suis-je ?</h3>
+
+                <p>
+                    Je suis un développeur passionné par la création
+                    d'applications web et mobiles. J'aime résoudre les
+                    problèmes grâce à la programmation et concevoir des
+                    interfaces modernes.
+                </p>
+
+                <p>
+                    Mon objectif est de développer des solutions fiables,
+                    accessibles et adaptées aux besoins des utilisateurs.
+                </p>
+
+                <a href="#contact" class="btn">Collaborons ensemble</a>
+            </div>
+
+            <div class="about-stats">
+                <div class="stat">
+                    <h3>Web</h3>
+                    <p>Développement web</p>
+                </div>
+
+                <div class="stat">
+                    <h3>Mobile</h3>
+                    <p>Applications mobiles</p>
+                </div>
+
+                <div class="stat">
+                    <h3>UI/UX</h3>
+                    <p>Design d'interfaces</p>
+                </div>
+
+                <div class="stat">
+                    <h3>Code</h3>
+                    <p>Solutions numériques</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- COMPÉTENCES -->
+<section id="skills">
+    <div class="container">
+
+        <div class="section-title reveal">
+            <h2>Mes <span>compétences</span></h2>
+            <p>Les technologies que j'utilise pour développer mes solutions.</p>
+        </div>
+
+        <div class="skills-grid">
+
+            <div class="skill-card reveal">
+                <div class="icon">🌐</div>
+                <h3>HTML5</h3>
+                <p>Structure moderne et sémantique des applications web.</p>
+                <div class="skill-bar"><div class="skill-progress" style="width:90%"></div></div>
+            </div>
+
+            <div class="skill-card reveal">
+                <div class="icon">🎨</div>
+                <h3>CSS3 / Bootstrap</h3>
+                <p>Interfaces élégantes, responsive et professionnelles.</p>
+                <div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div>
+            </div>
+
+            <div class="skill-card reveal">
+                <div class="icon">⚡</div>
+                <h3>JavaScript</h3>
+                <p>Interactions dynamiques et fonctionnalités modernes.</p>
+                <div class="skill-bar"><div class="skill-progress" style="width:80%"></div></div>
+            </div>
+
+            <div class="skill-card reveal">
+                <div class="icon">🐘</div>
+                <h3>PHP / Symfony</h3>
+                <p>Développement backend et applications web robustes.</p>
+                <div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div>
+            </div>
+
+            <div class="skill-card reveal">
+                <div class="icon">⚛️</div>
+                <h3>React.js</h3>
+                <p>Création d'interfaces utilisateur interactives.</p>
+                <div class="skill-bar"><div class="skill-progress" style="width:70%"></div></div>
+            </div>
+
+            <div class="skill-card reveal">
+                <div class="icon">🗄️</div>
+                <h3>PostgreSQL / MySQL</h3>
+                <p>Conception, gestion et optimisation des bases de données.</p>
+                <div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- PROJETS -->
+<section id="projects">
+    <div class="container">
+
+        <div class="section-title reveal">
+            <h2>Mes <span>réalisations</span></h2>
+            <p>Quelques projets qui illustrent mon savoir-faire.</p>
+        </div>
+
+        <div class="projects-grid">
+
+            <div class="project-card reveal">
+                <img src="d3794e66a64b7dce87a38a0054a48da4.jpg"
+                     alt="Application de gestion des absences">
+
+                <div class="project-info">
+                    <h3>Gestion des absences</h3>
+                    <p>
+                        Une plateforme de gestion des demandes de congés,
+                        avec authentification et gestion des utilisateurs.
+                    </p>
+
+                    <div class="tags">
+                        <span>Symfony</span>
+                        <span>PHP</span>
+                        <span>PostgreSQL</span>
+                    </div>
+
+                    <a href="#" class="project-link">Voir le projet ↗</a>
+                </div>
+            </div>
+
+            <div class="project-card reveal">
+                <img src="IMG_20261112_132005.jpg"
+                     alt="Application mobile">
+
+                <div class="project-info">
+                    <h3>Application mobile</h3>
+                    <p>
+                        Une application mobile moderne permettant
+                        de gérer et consulter des informations facilement.
+                    </p>
+
+                    <div class="tags">
+                        <span>React Native</span>
+                        <span>JavaScript</span>
+                        <span>API</span>
+                    </div>
+
+                    <a href="#" class="project-link">Voir le projet ↗</a>
+                </div>
+            </div>
+
+            <div class="project-card reveal">
+                <img src="Tableau-de-bord-de-gestion-de-projet-5-1.png"
+                     alt="Application de gestion de projets">
+
+                <div class="project-info">
+                    <h3>Gestion de projets</h3>
+                    <p>
+                        Une solution permettant de créer, organiser,
+                        suivre et gérer les projets d'une équipe.
+                    </p>
+
+                    <div class="tags">
+                        <span>PHP</span>
+                        <span>Bootstrap</span>
+                        <span>MySQL</span>
+                    </div>
+
+                    <a href="#" class="project-link">Voir le projet ↗</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+    <div class="container">
+
+        <div class="section-title reveal">
+            <h2>Mes <span>services</span></h2>
+            <p>Des solutions numériques adaptées à vos besoins.</p>
+        </div>
+
+        <div class="services-grid">
+
+            <div class="service-card reveal">
+                <div class="icon">💻</div>
+                <h3>Développement Web</h3>
+                <p>
+                    Création de sites web professionnels,
+                    dynamiques et responsive.
+                </p>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="icon">📱</div>
+                <h3>Développement Mobile</h3>
+                <p>
+                    Conception d'applications mobiles
+                    intuitives et performantes.
+                </p>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="icon">⚙️</div>
+                <h3>Gestion de données</h3>
+                <p>
+                    Création de systèmes de gestion,
+                    bases de données et applications CRUD.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="container">
+
+        <div class="section-title reveal">
+            <h2>Me <span>contacter</span></h2>
+            <p>Un projet ou une idée ? Discutons-en.</p>
+        </div>
+
+        <div class="contact-content reveal">
+
+            <div class="contact-info">
+                <h3>Entrons en contact</h3>
+
+                <p>
+                    Je suis disponible pour échanger sur vos projets,
+                    vos besoins et vos idées de collaboration.
+                </p>
+
+                <div class="contact-item">
+                    <span>📧</span>arilalainajohnson51@gmail.com
+                </div>
+
+                <div class="contact-item">
+                    <span>📱</span> +261 34 06 588 52
+                </div>
+
+                <div class="contact-item">
+                    <span>📍</span> Madagascar
+                </div>
+
+                <div class="contact-item">
+                    <span>💼</span> Randriananjason arilalaina johnson / Arilalaina-Johns
+                </div>
+            </div>
+
+            <form class="contact-form" id="contactForm">
+
+                <input type="text" id="name" placeholder="Votre nom" required>
+
+                <input type="email" id="email" placeholder="Votre adresse e-mail" required>
+
+                <input type="text" id="subject" placeholder="Sujet du message" required>
+
+                <textarea id="message" placeholder="Votre message..." required></textarea>
+
+                <button type="submit" class="btn">Envoyer le message ↗</button>
+
+                <p id="formMessage" style="margin-top:15px;color:#38bdf8;"></p>
+
+            </form>
+
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <p>
+            <span id="year"></span> <span>Arilalaina Johnson</span>
+        </p>
+        <p style="margin-top:10px;">Imaginons et codons bien</p>
+    </div>
+</footer>
+
+<script>
+/* MENU MOBILE */
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+
+    const isOpen = navLinks.classList.contains("show");
+    menuBtn.setAttribute("aria-expanded", isOpen);
+    menuBtn.textContent = isOpen ? "✕" : "☰";
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("show");
+        menuBtn.textContent = "☰";
+        menuBtn.setAttribute("aria-expanded", "false");
+    });
+});
+
+/* ANIMATION AU DÉFILEMENT */
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+        }
+    });
+}, {
+    threshold: 0.12
+});
+
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
+
+/* ANNÉE AUTOMATIQUE */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+/* FORMULAIRE DE CONTACT */
+
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const subject = document.getElementById("subject").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    const destination = "votreemail@gmail.com";
+
+    const body =
+        "Nom : " + name + "\n" +
+        "Email : " + email + "\n\n" +
+        "Message :\n" + message;
+
+    const mailto =
+        "mailto:" + destination +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+
+    document.getElementById("formMessage").textContent =
+        "Ouverture de votre application e-mail...";
+
+    window.location.href = mailto;
+});
+</script>
+
+</body>
+</html>
